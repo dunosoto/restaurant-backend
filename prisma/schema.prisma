@@ -12,3 +12,17 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Category {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  slug String
+  description String
+
+ //Define relationship with Products.
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("categories")
+}
