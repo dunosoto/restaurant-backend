@@ -28,7 +28,6 @@ export class CategoriesService {
     return {
       message: 'Category created successfully',
       data: category
-
     }
   }
 
@@ -71,7 +70,6 @@ export class CategoriesService {
       message: 'Category updated.',
       data: categoryUpdated
     }
-
   }
 
 
@@ -79,7 +77,7 @@ export class CategoriesService {
 
     const {data} = await this.findOne(id);
     await this.prismaService.category.delete({
-      where: data
+      where: { id }
     });
 
     return 'Category was deleted.';
